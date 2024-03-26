@@ -2,7 +2,7 @@
   "type": "pizzacraft:chopping_recipe",
   "input":
     {
-      "tag": "forge:rawpork"
+      "item": "minecraft:porkchop"
     },
   "result": {
     "item": "pizzacraft:ham",
