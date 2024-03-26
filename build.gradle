@@ -10,7 +10,7 @@ plugins {
 version = "${minecraft_version}-${mod_version}"
 group = 'com.tiviacz.pizzacraft' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 base {
-    archivesName = 'PizzaCraft'
+    archivesName = 'pizzacraft'
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -172,18 +172,12 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:' + "${minecraft_version}" + '-' + "${forge_version}"
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
 
-    compileOnly fg.deobf("mezz.jei:${jei_version}")
-    runtimeOnly fg.deobf("mezz.jei:${jei_version}")
+    implementation fg.deobf("mezz.jei:${jei_version}")
 
     runtimeOnly fg.deobf("curse.maven:fd-398521:4679319")
-    runtimeOnly fg.deobf("curse.maven:appleskin-248787:4605078")
-    // Real mod deobf dependency examples - these get remapped to your current mappings
-    // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
-    // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}") // Adds the full JEI mod as a runtime dependency
-    // implementation fg.deobf("com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}") // Adds registrate as a dependency
+    implementation fg.deobf("curse.maven:appleskin-248787:4605078")
 
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
