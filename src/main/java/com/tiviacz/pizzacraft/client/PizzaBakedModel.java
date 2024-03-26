@@ -99,7 +99,8 @@ public class PizzaBakedModel implements BakedModel
     @Override
     public List<BakedQuad> getQuads(@Nullable BlockState state, @Nullable Direction side, RandomSource rand)
     {
-        throw new AssertionError("IBakedModel::getQuads should never be called, only IForgeBakedModel::getQuads");
+        return getQuads(state, side, rand, ModelData.EMPTY, null);
+        //throw new AssertionError("IBakedModel::getQuads should never be called, only IForgeBakedModel::getQuads");
     }
 
     protected static final float[][] VECTORS = new float[][]
