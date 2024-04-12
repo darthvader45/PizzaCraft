@@ -21,15 +21,13 @@ public class ChoppingRecipeCategory implements IRecipeCategory<ChoppingRecipe>
     public static final RecipeType<ChoppingRecipe> CHOPPING =
             RecipeType.create(PizzaCraft.MODID, "chopping", ChoppingRecipe.class);
 
-    public static final ResourceLocation ID = new ResourceLocation(PizzaCraft.MODID, "chopping");
-
     private final IDrawable background;
     private final IDrawable icon;
     private final Component title;
 
     public ChoppingRecipeCategory(IGuiHelper guiHelper)
     {
-        background = guiHelper.createDrawable(new ResourceLocation(PizzaCraft.MODID, "textures/gui/chopping_recipe.png"), -14, -5, 95, 31);
+        background = guiHelper.createDrawable(new ResourceLocation(PizzaCraft.MODID, "textures/gui/chopping_recipe.png"), -4, -4, 95, 49);
         icon = guiHelper.createDrawableItemStack(new ItemStack(ModBlocks.OAK_CHOPPING_BOARD.get()));
         title = Component.translatable("recipecategory." + PizzaCraft.MODID + ".chopping");
     }
@@ -61,10 +59,8 @@ public class ChoppingRecipeCategory implements IRecipeCategory<ChoppingRecipe>
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ChoppingRecipe choppingRecipe, IFocusGroup focuses)
     {
-        builder.addSlot(RecipeIngredientRole.INPUT, 15, 7).addItemStacks(Arrays.asList(choppingRecipe.getInput().getItems()));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 64, 7).addItemStack(choppingRecipe.output);
-
-        //iIngredients.setInputIngredients(ingredients);
-        //iIngredients.setOutput(VanillaTypes.ITEM, choppingRecipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 19, 22).addItemStacks(Arrays.asList(choppingRecipe.input.getItems()));
+        builder.addSlot(RecipeIngredientRole.INPUT, 43, 5).addItemStacks(Arrays.asList(choppingRecipe.tool.getItems()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 70, 22).addItemStack(choppingRecipe.output);
     }
 }

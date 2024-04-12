@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "tag": "forge:crops/tomato"
-    },
+  {
+    "tag": "forge:crops/tomato"
+  },
   "result": {
     "item": "pizzacraft:tomato_slice",
     "count": 2

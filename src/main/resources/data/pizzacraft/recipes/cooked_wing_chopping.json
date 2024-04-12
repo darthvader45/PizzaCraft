@@ -6,10 +6,10 @@
   },
   "input":
   {
-    "tag": "forge:crops/pepper"
+    "item": "minecraft:cooked_chicken"
   },
   "result": {
-    "item": "pizzacraft:pepper_slice",
+    "item": "pizzacraft:cooked_wing",
     "count": 2
   }
 }

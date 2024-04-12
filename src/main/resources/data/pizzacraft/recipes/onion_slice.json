@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "tag": "forge:crops/onion"
-    },
+  {
+    "tag": "forge:crops/onion"
+  },
   "result": {
     "item": "pizzacraft:onion_slice",
     "count": 2

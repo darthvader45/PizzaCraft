@@ -55,9 +55,9 @@ public class CrushingRecipeSerializer implements RecipeSerializer<CrushingRecipe
     @Override
     public void toNetwork(FriendlyByteBuf buf, CrushingRecipe recipe)
     {
-        recipe.getInput().toNetwork(buf);
-        buf.writeInt(recipe.getInputCount());
-        buf.writeUtf(recipe.getContentOutput().toString());
+        recipe.input.toNetwork(buf);
+        buf.writeInt(recipe.inputCount);
+        buf.writeUtf(recipe.contentOutput.toString());
         buf.writeItem(recipe.stackOutput);
     }
 

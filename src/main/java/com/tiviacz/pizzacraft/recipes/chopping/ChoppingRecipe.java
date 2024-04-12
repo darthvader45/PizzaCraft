@@ -12,20 +12,17 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class ChoppingRecipe implements Recipe<RecipeWrapper>
 {
-    private final Ingredient input;
+    public final Ingredient tool;
+    public final Ingredient input;
     public final ItemStack output;
-    private final ResourceLocation id;
+    public final ResourceLocation id;
 
-    public ChoppingRecipe(Ingredient input, ItemStack output, ResourceLocation id)
+    public ChoppingRecipe(Ingredient tool, Ingredient input, ItemStack output, ResourceLocation id)
     {
+        this.tool = tool;
         this.input = input;
         this.output = output;
         this.id = id;
-    }
-
-    public Ingredient getInput()
-    {
-        return this.input;
     }
 
     @Override

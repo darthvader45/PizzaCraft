@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "tag": "forge:mushrooms"
-    },
+  {
+    "tag": "forge:mushrooms"
+  },
   "result": {
     "item": "pizzacraft:mushroom_slice",
     "count": 2

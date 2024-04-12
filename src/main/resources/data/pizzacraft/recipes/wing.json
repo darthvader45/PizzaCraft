@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "item": "minecraft:chicken"
-    },
+  {
+    "item": "minecraft:chicken"
+  },
   "result": {
     "item": "pizzacraft:wing",
     "count": 2

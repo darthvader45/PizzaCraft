@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "item": "minecraft:porkchop"
-    },
+  {
+    "item": "minecraft:porkchop"
+  },
   "result": {
     "item": "pizzacraft:ham",
     "count": 2

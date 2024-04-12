@@ -1,9 +1,13 @@
 {
   "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
   "input":
-    {
-      "tag": "forge:crops/pineapple"
-    },
+  {
+    "tag": "forge:crops/pineapple"
+  },
   "result": {
     "item": "pizzacraft:pineapple_slice",
     "count": 2
