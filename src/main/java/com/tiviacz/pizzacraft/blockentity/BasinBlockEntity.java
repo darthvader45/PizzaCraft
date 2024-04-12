@@ -289,12 +289,12 @@ public class BasinBlockEntity extends BaseBlockEntity
 
             if(match.isPresent())
             {
-                if(BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().getContentOutput()) == null)
+                if(BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput) == null)
                 {
                     throw new JsonSyntaxException(String.format("Content in %s recipe does not exist", match.get()));
                 }
 
-                if(getBasinContent() == BasinContent.AIR || getBasinContent() == BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().getContentOutput()))
+                if(getBasinContent() == BasinContent.AIR || getBasinContent() == BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput))
                 {
                     if(getSquashedStack().isEmpty())
                     {
@@ -305,7 +305,7 @@ public class BasinBlockEntity extends BaseBlockEntity
                         setSquashedStackCount(getSquashedStackCount() + 1);
                     }
 
-                    this.content = BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().getContentOutput());
+                    this.content = BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput);
                     decrStackSize(inventory, 0, 1);
                     level.playSound(player, getBlockPos(), SoundEvents.SLIME_BLOCK_FALL, SoundSource.BLOCKS, 0.7F, 0.9F + (0.1F * level.random.nextFloat()));
                 }

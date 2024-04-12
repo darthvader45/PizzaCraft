@@ -12,11 +12,11 @@ import net.minecraftforge.items.wrapper.RecipeWrapper;
 
 public class CrushingRecipe implements Recipe<RecipeWrapper>
 {
-    private final Ingredient input;
-    private final int inputCount;
-    private final String contentOutput;
+    public final Ingredient input;
+    public final int inputCount;
+    public final String contentOutput;
     public final ItemStack stackOutput;
-    private final ResourceLocation id;
+    public final ResourceLocation id;
 
     public CrushingRecipe(Ingredient input, int inputCount, String contentOutput, ItemStack stackOutput, ResourceLocation id)
     {
@@ -43,21 +43,6 @@ public class CrushingRecipe implements Recipe<RecipeWrapper>
     public boolean canCraftInDimensions(int width, int height)
     {
         return false;
-    }
-
-    public int getInputCount()
-    {
-        return this.inputCount;
-    }
-
-    public Ingredient getInput()
-    {
-        return this.input;
-    }
-
-    public String getContentOutput()
-    {
-        return this.contentOutput;
     }
 
     @Override
