@@ -1,10 +1,9 @@
 {
-	"parent": "block/block",
 	"credit": "Made by Sir Squidly",
 	"textures": {
-		"particle": "pizzacraft:block/pizza_dough_top",
-		"1": "pizzacraft:block/pizza_dough_top",
-		"2": "pizzacraft:block/raw_pizza_bottom"
+		"1": "pizzacraft:block/raw_pizza_bottom",
+		"2": "pizzacraft:block/pizza_dough_stage6",
+		"particle": "pizzacraft:block/pizza_dough_stage6"
 	},
 	"elements": [
 		{
@@ -16,8 +15,8 @@
 				"east": {"uv": [1, 15, 15, 16], "texture": "#2"},
 				"south": {"uv": [1, 15, 15, 16], "texture": "#2"},
 				"west": {"uv": [1, 15, 15, 16], "texture": "#2"},
-				"up": {"uv": [1, 1, 15, 15], "texture": "#1"},
-				"down": {"uv": [1, 1, 15, 15], "texture": "#2"}
+				"up": {"uv": [1, 1, 15, 15], "texture": "#2"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#1"}
 			}
 		}
 	],

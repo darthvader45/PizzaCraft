@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"3": "pizzacraft:block/pineapple_full",
-		"4": "pizzacraft:block/pineapple_stage3",
-		"particle": "pizzacraft:block/pineapple_stage3"
+		"3": "pizzacraft:blocks/pineapple_full",
+		"4": "pizzacraft:blocks/pineapple_stage3",
+		"particle": "pizzacraft:blocks/pineapple_stage3"
 	},
 	"elements": [
 		{

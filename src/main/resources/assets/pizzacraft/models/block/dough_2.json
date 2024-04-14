@@ -1,8 +1,8 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "pizzacraft:block/pizza_dough",
-		"particle": "pizzacraft:block/pizza_dough"
+		"0": "pizzacraft:block/pizza_dough_stage2",
+		"particle": "pizzacraft:block/pizza_dough_stage2"
 	},
 	"elements": [
 		{
@@ -10,12 +10,12 @@
 			"from": [4, 0, 5],
 			"to": [10, 5, 12],
 			"faces": {
-				"north": {"uv": [3, 3, 9, 8], "texture": "#0"},
-				"east": {"uv": [1, 4, 8, 9], "texture": "#0"},
-				"south": {"uv": [3, 3, 9, 8], "texture": "#0"},
-				"west": {"uv": [1, 4, 8, 9], "texture": "#0"},
-				"up": {"uv": [10, 3, 16, 10], "texture": "#0"},
-				"down": {"uv": [4, 9, 10, 16], "texture": "#0"}
+				"north": {"uv": [0, 11, 6, 16], "texture": "#0"},
+				"east": {"uv": [6, 11, 13, 16], "texture": "#0"},
+				"south": {"uv": [0, 11, 6, 16], "texture": "#0"},
+				"west": {"uv": [6, 11, 13, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 6, 7], "texture": "#0"},
+				"down": {"uv": [6, 0, 12, 7], "texture": "#0"}
 			}
 		}
 	]

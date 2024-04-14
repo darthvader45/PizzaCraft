@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-        "crop": "pizzacraft:block/corns_stage6"
+        "crop": "pizzacraft:blocks/corns_stage6"
     }
 }

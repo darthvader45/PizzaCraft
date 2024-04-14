@@ -12,38 +12,38 @@ import java.util.List;
 public class LayerSelector
 {
     //Block
-    public static final ResourceLocation RAW_BROCCOLI_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_broccoli_universal");
-    public static final ResourceLocation RAW_CORN_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_corn_universal");
-    public static final ResourceLocation RAW_CUCUMBER_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_cucumber_universal");
-    public static final ResourceLocation RAW_ONION_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_onion_universal");
-    public static final ResourceLocation RAW_PEPPER_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_pepper_universal");
-    public static final ResourceLocation RAW_TOMATO_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_tomato_universal");
+    public static final ResourceLocation RAW_BROCCOLI_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/broccoli");
+    public static final ResourceLocation RAW_CORN_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/corn");
+    public static final ResourceLocation RAW_CUCUMBER_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/cucumber");
+    public static final ResourceLocation RAW_ONION_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/onion");
+    public static final ResourceLocation RAW_PEPPER_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/pepper");
+    public static final ResourceLocation RAW_TOMATO_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/tomato");
 
-    public static final ResourceLocation RAW_PINEAPPLE_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_pineapple_universal");
-    public static final ResourceLocation RAW_OLIVE_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_olive_universal");
+    public static final ResourceLocation RAW_PINEAPPLE_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/pineapple");
+    public static final ResourceLocation RAW_OLIVE_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/olive");
 
-    public static final ResourceLocation RAW_MUSHROOM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_mushroom_universal");
+    public static final ResourceLocation RAW_MUSHROOM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/mushroom");
 
-    public static final ResourceLocation RAW_HAM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_ham_universal");
-    public static final ResourceLocation RAW_BEEF_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_beef_universal");
-    public static final ResourceLocation RAW_CHICKEN_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/universal/raw_chicken_universal");
+    public static final ResourceLocation RAW_HAM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/ham");
+    public static final ResourceLocation RAW_BEEF_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/beef");
+    public static final ResourceLocation RAW_CHICKEN_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "block/layer/universal/raw/chicken");
 
     //Item
-    public static final ResourceLocation BROCCOLI_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/broccoli_item_universal_layer");
-    public static final ResourceLocation CORN_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/corn_item_universal_layer");
-    public static final ResourceLocation CUCUMBER_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/cucumber_item_universal_layer");
-    public static final ResourceLocation ONION_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/onion_item_universal_layer");
-    public static final ResourceLocation PEPPER_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/pepper_item_universal_layer");
-    public static final ResourceLocation TOMATO_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/tomato_item_universal_layer");
+    public static final ResourceLocation BROCCOLI_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/broccoli");
+    public static final ResourceLocation CORN_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/corn");
+    public static final ResourceLocation CUCUMBER_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/cucumber");
+    public static final ResourceLocation ONION_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/onion");
+    public static final ResourceLocation PEPPER_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/pepper");
+    public static final ResourceLocation TOMATO_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/tomato");
 
-    public static final ResourceLocation PINEAPPLE_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/pineapple_item_universal_layer");
-    public static final ResourceLocation OLIVE_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/olive_item_universal_layer");
+    public static final ResourceLocation PINEAPPLE_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/pineapple");
+    public static final ResourceLocation OLIVE_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/olive");
 
-    public static final ResourceLocation MUSHROOM_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/mushroom_item_universal_layer");
+    public static final ResourceLocation MUSHROOM_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/mushroom");
 
-    public static final ResourceLocation HAM_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/ham_item_universal_layer");
-    public static final ResourceLocation BEEF_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/beef_item_universal_layer");
-    public static final ResourceLocation CHICKEN_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/universal/chicken_item_universal_layer");
+    public static final ResourceLocation HAM_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/ham");
+    public static final ResourceLocation BEEF_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/beef");
+    public static final ResourceLocation CHICKEN_ITEM_UNIVERSAL_LAYER = new ResourceLocation(PizzaCraft.MODID, "item/layer/universal/chicken");
 
     public List<ResourceLocation> layers = new ArrayList<>();
     public List<ResourceLocation> itemLayers = new ArrayList<>();
