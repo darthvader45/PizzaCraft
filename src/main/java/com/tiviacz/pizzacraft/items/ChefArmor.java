@@ -57,29 +57,6 @@ public class ChefArmor extends ArmorItem
         });
     }
 
- /*   @Nullable
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public <A extends HumanoidModel<?>> A getArmorModel(LivingEntity entityLiving, ItemStack itemStack, EquipmentSlot armorSlot, A _default)
-    {
-        if(armorSlot == EquipmentSlot.HEAD)
-        {
-            ChefHatModel hat = new ChefHatModel();
-
-            hat.box1.visible = armorSlot == EquipmentSlot.HEAD;
-            hat.box2.visible = armorSlot == EquipmentSlot.HEAD;
-
-            hat.young = _default.young;
-            hat.riding = _default.riding;
-            hat.crouching = _default.crouching;
-            hat.rightArmPose = _default.rightArmPose;
-            hat.leftArmPose = _default.leftArmPose;
-
-            return (A)hat;
-        }
-        return null;
-    } */
-
     @Nullable
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type)

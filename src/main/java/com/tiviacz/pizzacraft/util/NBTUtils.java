@@ -59,6 +59,7 @@ public class NBTUtils
         if(stack.getTag().contains(TAG_INVENTORY))
         {
             handler.deserializeNBT(stack.getTag().getCompound(TAG_INVENTORY));
+            //handler.setSize(10);
         }
     }
 

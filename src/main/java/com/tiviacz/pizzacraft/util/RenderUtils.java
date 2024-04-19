@@ -10,6 +10,8 @@ import java.util.TreeMap;
 
 public class RenderUtils
 {
+    public static final long CONSTANT_RENDERING_LONG = 42;
+
     public static double[] getPosRandomAboveBlockHorizontal(Level level, BlockPos pos)
     {
         double d0 = 0.5D;

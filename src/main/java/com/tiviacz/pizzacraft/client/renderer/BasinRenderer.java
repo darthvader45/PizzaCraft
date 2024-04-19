@@ -7,7 +7,7 @@ import com.tiviacz.pizzacraft.PizzaCraft;
 import com.tiviacz.pizzacraft.blockentity.BasinBlockEntity;
 import com.tiviacz.pizzacraft.blockentity.content.BasinContent;
 import com.tiviacz.pizzacraft.blockentity.content.BasinContentType;
-import com.tiviacz.pizzacraft.util.Reference;
+import com.tiviacz.pizzacraft.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelLayerLocation;
@@ -55,7 +55,7 @@ public class BasinRenderer implements BlockEntityRenderer<BasinBlockEntity>
     @Override
     public void render(BasinBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource bufferIn, int combinedLightIn, int combinedOverlayIn)
     {
-        rand.setSeed(Reference.CONSTANT_RENDERING_LONG);
+        rand.setSeed(RenderUtils.CONSTANT_RENDERING_LONG);
         ResourceLocation tex = getTexture(blockEntity.getBasinContent());
         BasinContent basinContent = blockEntity.getBasinContent();
         ItemStack squashedStack = blockEntity.getInventory().getStackInSlot(0);
