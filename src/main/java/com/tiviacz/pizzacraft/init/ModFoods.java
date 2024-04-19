@@ -30,6 +30,9 @@ public class ModFoods
     public static final FoodProperties HAM = new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build();
     public static final FoodProperties WING = new FoodProperties.Builder().nutrition(1).saturationMod(0.15F).fast().meat().build();
     public static final FoodProperties COOKED_WING = new FoodProperties.Builder().nutrition(3).saturationMod(0.3F).fast().meat().build();
+    public static final FoodProperties HOT_WING = new FoodProperties.Builder().nutrition(4).saturationMod(0.4F).fast().meat().build();
+    public static final FoodProperties FISH_FILLET = new FoodProperties.Builder().nutrition(2).saturationMod(0.1F).fast().build();
+    public static final FoodProperties COOKED_FISH_FILLET = new FoodProperties.Builder().nutrition(3).saturationMod(0.6F).fast().build();
 
     //Sauce
     public static final FoodProperties OLIVE_OIL = new FoodProperties.Builder().nutrition(2).saturationMod(1.2F).effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 240, 1), 0.75F).build();

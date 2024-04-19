@@ -116,6 +116,9 @@ public class ModItems
     public static final RegistryObject<Item> HAM = ITEMS.register("ham", () -> new Item(pizzaProperties().food(ModFoods.HAM)));
     public static final RegistryObject<Item> WING = ITEMS.register("wing", () -> new Item(pizzaProperties().food(ModFoods.WING)));
     public static final RegistryObject<Item> COOKED_WING = ITEMS.register("cooked_wing", () -> new Item(pizzaProperties().food(ModFoods.COOKED_WING)));
+    public static final RegistryObject<Item> HOT_WING = ITEMS.register("hot_wing", () -> new Item(pizzaProperties().food(ModFoods.HOT_WING)));
+    public static final RegistryObject<Item> FISH_FILLET = ITEMS.register("fish_fillet", () -> new Item(pizzaProperties().food(ModFoods.FISH_FILLET)));
+    public static final RegistryObject<Item> COOKED_FISH_FILLET = ITEMS.register("cooked_fish_fillet", () -> new Item(pizzaProperties().food(ModFoods.COOKED_FISH_FILLET)));
 
     //Ingredients
     public static final RegistryObject<Item> FLOUR = ITEMS.register("flour", () -> new Item(pizzaProperties()));

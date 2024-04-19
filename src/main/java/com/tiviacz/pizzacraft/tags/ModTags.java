@@ -29,9 +29,11 @@ public class ModTags
     public static final TagKey<Item> OLIVE_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/fruits/olive_layer"));
 
     public static final TagKey<Item> MUSHROOM_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/mushrooms/mushroom_layer"));
+    public static final TagKey<Item> VEGETABLE_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/vegetables/vegetable_layer"));
 
     public static final TagKey<Item> HAM_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/meats/ham_layer"));
     public static final TagKey<Item> CHICKEN_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/meats/chicken_layer"));
+    public static final TagKey<Item> FISH_LAYER = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/fish_layer"));
 
     public static final TagKey<Item> TOMATO_SAUCE = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/sauces/tomato_sauce_layer"));
     public static final TagKey<Item> HOT_SAUCE = TagKey.create(Registries.ITEM, createResourceLocation("ingredients/sauces/hot_sauce_layer"));

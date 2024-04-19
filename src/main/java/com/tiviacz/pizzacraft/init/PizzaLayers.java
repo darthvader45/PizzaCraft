@@ -58,23 +58,29 @@ public class PizzaLayers
 
     //Mushrooms
     public static final ResourceLocation MUSHROOM_LAYER = createBlock("mushroom");
+    public static final ResourceLocation VEGETABLE_LAYER = createBlock("vegetable");
 
     public static final ResourceLocation RAW_MUSHROOM_LAYER = createRawBlock("mushroom");
+    public static final ResourceLocation RAW_VEGETABLE_LAYER = createRawBlock("vegetable");
 
     public static final ResourceLocation MUSHROOM_ITEM_LAYER = createItem("mushroom");
+    public static final ResourceLocation VEGETABLE_ITEM_LAYER = createItem("vegetable");
 
     //Meats
     public static final ResourceLocation HAM_LAYER = createBlock("ham");
     public static final ResourceLocation BEEF_LAYER = createBlock("beef");
     public static final ResourceLocation CHICKEN_LAYER = createBlock("chicken");
+    public static final ResourceLocation FISH_LAYER = createBlock("fish");
 
     public static final ResourceLocation RAW_HAM_LAYER = createRawBlock("ham");
     public static final ResourceLocation RAW_BEEF_LAYER = createRawBlock("beef");
     public static final ResourceLocation RAW_CHICKEN_LAYER = createRawBlock("chicken");
+    public static final ResourceLocation RAW_FISH_LAYER = createRawBlock("fish");
 
     public static final ResourceLocation HAM_ITEM_LAYER = createItem("ham");
     public static final ResourceLocation BEEF_ITEM_LAYER = createItem("beef");
     public static final ResourceLocation CHICKEN_ITEM_LAYER = createItem("chicken");
+    public static final ResourceLocation FISH_ITEM_LAYER = createItem("fish");
 
     //Sauces
     public static final ResourceLocation TOMATO_SAUCE_LAYER = createBlock("tomato_sauce");
@@ -135,9 +141,11 @@ public class PizzaLayers
         TAG_TO_LAYER.put(ModTags.OLIVE_LAYER, OLIVE_LAYER);
 
         TAG_TO_LAYER.put(ModTags.MUSHROOM_LAYER, MUSHROOM_LAYER);
+        TAG_TO_LAYER.put(ModTags.VEGETABLE_LAYER, VEGETABLE_LAYER);
 
         TAG_TO_LAYER.put(ModTags.HAM_LAYER, HAM_LAYER);
         TAG_TO_LAYER.put(ModTags.CHICKEN_LAYER, CHICKEN_LAYER);
+        TAG_TO_LAYER.put(ModTags.FISH_LAYER, FISH_LAYER);
 
         TAG_TO_LAYER.put(ModTags.TOMATO_SAUCE, TOMATO_SAUCE_LAYER);
         TAG_TO_LAYER.put(ModTags.HOT_SAUCE, HOT_SAUCE_LAYER);
@@ -158,9 +166,11 @@ public class PizzaLayers
         TAG_TO_RAW_LAYER.put(ModTags.OLIVE_LAYER, RAW_OLIVE_LAYER);
 
         TAG_TO_RAW_LAYER.put(ModTags.MUSHROOM_LAYER, RAW_MUSHROOM_LAYER);
+        TAG_TO_RAW_LAYER.put(ModTags.VEGETABLE_LAYER, RAW_VEGETABLE_LAYER);
 
         TAG_TO_RAW_LAYER.put(ModTags.HAM_LAYER, RAW_HAM_LAYER);
         TAG_TO_RAW_LAYER.put(ModTags.CHICKEN_LAYER, RAW_CHICKEN_LAYER);
+        TAG_TO_RAW_LAYER.put(ModTags.FISH_LAYER, RAW_FISH_LAYER);
 
         TAG_TO_RAW_LAYER.put(ModTags.TOMATO_SAUCE, TOMATO_SAUCE_LAYER);
         TAG_TO_RAW_LAYER.put(ModTags.HOT_SAUCE, HOT_SAUCE_LAYER);
@@ -179,12 +189,14 @@ public class PizzaLayers
         TAG_TO_ITEM_LAYER.put(ModTags.OLIVE_LAYER, OLIVE_ITEM_LAYER);
 
         TAG_TO_ITEM_LAYER.put(ModTags.MUSHROOM_LAYER, MUSHROOM_ITEM_LAYER);
+        TAG_TO_ITEM_LAYER.put(ModTags.VEGETABLE_LAYER, VEGETABLE_ITEM_LAYER);
 
         TAG_TO_ITEM_LAYER.put(ModTags.HAM_LAYER, HAM_ITEM_LAYER);
         TAG_TO_ITEM_LAYER.put(ModTags.CHICKEN_LAYER, CHICKEN_ITEM_LAYER);
+        TAG_TO_ITEM_LAYER.put(ModTags.FISH_LAYER, FISH_ITEM_LAYER);
 
         TAG_TO_ITEM_LAYER.put(ModTags.TOMATO_SAUCE, TOMATO_SAUCE_ITEM_LAYER);
-        TAG_TO_ITEM_LAYER.put(ModTags.HOT_SAUCE, TOMATO_SAUCE_ITEM_LAYER);
+        TAG_TO_ITEM_LAYER.put(ModTags.HOT_SAUCE, HOT_SAUCE_ITEM_LAYER);
     }
 
     public static ResourceLocation createResourceLocation(String tagName)
@@ -207,9 +219,11 @@ public class PizzaLayers
             ModTags.OLIVE_LAYER,
 
             ModTags.MUSHROOM_LAYER,
+            ModTags.VEGETABLE_LAYER,
 
             ModTags.HAM_LAYER,
             ModTags.CHICKEN_LAYER,
+            ModTags.FISH_LAYER,
 
             ModTags.TOMATO_SAUCE,
             ModTags.HOT_SAUCE
@@ -228,9 +242,11 @@ public class PizzaLayers
             ModTags.OLIVE_LAYER,
 
             ModTags.MUSHROOM_LAYER,
+            ModTags.VEGETABLE_LAYER,
 
             ModTags.HAM_LAYER,
             ModTags.CHICKEN_LAYER,
+            ModTags.FISH_LAYER,
 
             ModTags.TOMATO_SAUCE,
             ModTags.HOT_SAUCE
