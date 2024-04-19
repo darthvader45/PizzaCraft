@@ -36,28 +36,27 @@ public class ModCreativeTabs
     {
         output.accept(ModBlocks.PIZZA_STATION.get());
         output.accept(ModBlocks.OVEN.get());
+        output.accept(ModBlocks.OAK_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.BIRCH_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.SPRUCE_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.JUNGLE_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.ACACIA_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.DARK_OAK_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.CRIMSON_CHOPPING_BOARD.get());
+        output.accept(ModBlocks.WARPED_CHOPPING_BOARD.get());
         output.accept(ModBlocks.OLIVE_CHOPPING_BOARD.get());
+
+        output.accept(ModBlocks.GRANITE_BASIN.get());
         output.accept(ModBlocks.DIORITE_BASIN.get());
+        output.accept(ModBlocks.ANDESITE_BASIN.get());
+        output.accept(ModBlocks.BASALT_BASIN.get());
+        output.accept(ModBlocks.BLACKSTONE_BASIN.get());
+        //output.accept(ModBlocks.OLIVE_CHOPPING_BOARD.get());
+        //output.accept(ModBlocks.DIORITE_BASIN.get());
 
         output.accept(ModBlocks.DOUGH.get());
         output.accept(ModBlocks.RAW_PIZZA.get());
         output.accept(ModBlocks.PIZZA.get());
-
-        //output.accept(ModBlocks.OAK_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.BIRCH_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.SPRUCE_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.JUNGLE_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.ACACIA_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.DARK_OAK_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.CRIMSON_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.WARPED_CHOPPING_BOARD.get());
-        //output.accept(ModBlocks.OLIVE_CHOPPING_BOARD.get());
-
-        //output.accept(ModBlocks.GRANITE_BASIN.get());
-        //output.accept(ModBlocks.DIORITE_BASIN.get());
-        //output.accept(ModBlocks.ANDESITE_BASIN.get());
-        //output.accept(ModBlocks.BASALT_BASIN.get());
-        //output.accept(ModBlocks.BLACKSTONE_BASIN.get());
 
         output.accept(ModBlocks.OLIVE_LOG.get());
         output.accept(ModBlocks.OLIVE_WOOD.get());
@@ -126,12 +125,15 @@ public class ModCreativeTabs
         output.accept(ModItems.HAM.get());
         output.accept(ModItems.WING.get());
         output.accept(ModItems.COOKED_WING.get());
+        output.accept(ModItems.HOT_WING.get());
+        output.accept(ModItems.FISH_FILLET.get());
+        output.accept(ModItems.COOKED_FISH_FILLET.get());
         output.accept(ModItems.FLOUR.get());
         output.accept(ModItems.CORN_FLOUR.get());
 
         output.accept(ModItems.TOMATO_SAUCE.get());
         output.accept(ModItems.HOT_SAUCE.get());
-        output.accept(ModItems.OLIVE_OIL.get());
+        //output.accept(ModItems.OLIVE_OIL.get());
 
         output.accept(ModItems.BROCCOLI_SEEDS.get());
         output.accept(ModItems.CUCUMBER_SEEDS.get());
