@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -83,6 +84,8 @@ public class PizzaStationBlockEntity extends BaseBlockEntity implements MenuProv
             @Override
             public boolean isItemValid(int slot, @NotNull ItemStack stack)
             {
+                if(stack.getItemHolder().is(new ResourceLocation("some_assembly_required", "sandwich"))) return false;
+
                 if(slot == 0) return false;
                 if(slot == 1) return stack.is(ModTags.DOUGH);
                 if(slot == 2) return (stack.getItem() instanceof SauceItem || stack.is(ModTags.SAUCE)) || stack.getItem() instanceof PotionItem;

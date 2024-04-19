@@ -16,6 +16,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -379,6 +380,8 @@ public class PizzaBlockEntity extends BaseBlockEntity implements MenuProvider
 
     public boolean canAddIngredient(ItemStack stack, int slot)
     {
+        if(stack.getItemHolder().is(new ResourceLocation("some_assembly_required", "sandwich"))) return false;
+
         if(stack.isEdible() || stack.is(ModTags.INGREDIENTS))
         {
             return inventory.getStackInSlot(slot).isEmpty();
