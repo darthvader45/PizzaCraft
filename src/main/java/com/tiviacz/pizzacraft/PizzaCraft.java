@@ -1,5 +1,6 @@
 package com.tiviacz.pizzacraft;
 
+import com.tiviacz.pizzacraft.blockentity.content.BasinContent;
 import com.tiviacz.pizzacraft.client.gui.ScreenPizza;
 import com.tiviacz.pizzacraft.client.gui.ScreenPizzaBag;
 import com.tiviacz.pizzacraft.client.gui.ScreenPizzaStation;
@@ -76,6 +77,7 @@ public class PizzaCraft
             ModNetwork.registerNetworkChannel();
             ModAdvancements.register();
             ModVanillaCompat.setup();
+            BasinContent.register();
         });
     }
 

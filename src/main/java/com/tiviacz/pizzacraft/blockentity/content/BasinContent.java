@@ -2,29 +2,45 @@ package com.tiviacz.pizzacraft.blockentity.content;
 
 import com.google.common.collect.Maps;
 import com.tiviacz.pizzacraft.PizzaCraft;
+import com.tiviacz.pizzacraft.init.ModBlocks;
+import com.tiviacz.pizzacraft.init.ModItems;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 
 import java.util.Map;
 
-public enum BasinContent {
+public class BasinContent
+{
+    public static final BasinContent AIR = BasinContentRegistry.REGISTRY.register(new BasinContent("air", BasinContentForm.EMPTY, BasinContentType.EMPTY, SauceType.NONE, ItemStack.EMPTY,  0));
+    public static final BasinContent MILK = BasinContentRegistry.REGISTRY.register(new BasinContent("milk", BasinContentForm.FERMENTABLE, BasinContentType.MILK, SauceType.NONE, Items.MILK_BUCKET.getDefaultInstance(), 0));
+    public static final BasinContent FERMENTING_MILK = BasinContentRegistry.REGISTRY.register(new BasinContent("fermenting_milk", BasinContentForm.FERMENTABLE, BasinContentType.FERMENTING_MILK, SauceType.NONE, Items.MILK_BUCKET.getDefaultInstance(), 0));
+    public static final BasinContent CHEESE = BasinContentRegistry.REGISTRY.register(new BasinContent("cheese", BasinContentForm.BLOCK, BasinContentType.CHEESE, SauceType.NONE, ModBlocks.CHEESE_BLOCK.get().asItem().getDefaultInstance(), 0));
+    public static final BasinContent TOMATO_SAUCE = BasinContentRegistry.REGISTRY.register(new BasinContent("tomato_sauce", BasinContentForm.FLUID, BasinContentType.SAUCE, SauceType.TOMATO, ModItems.TOMATO_SAUCE.get().getDefaultInstance(), 4));
+    public static final BasinContent HOT_SAUCE = BasinContentRegistry.REGISTRY.register(new BasinContent("hot_sauce", BasinContentForm.FLUID, BasinContentType.SAUCE, SauceType.HOT, ModItems.HOT_SAUCE.get().getDefaultInstance(), 4));
+    public static final BasinContent OLIVE_OIL = BasinContentRegistry.REGISTRY.register(new BasinContent("olive_oil", BasinContentForm.FLUID, BasinContentType.OIL, SauceType.NONE, ModItems.OLIVE_OIL.get().getDefaultInstance(), 4));
 
-    AIR("air", BasinContentType.EMPTY, SauceType.NONE),
-    MILK("milk", BasinContentType.MILK, SauceType.NONE),
-    FERMENTING_MILK("fermenting_milk", BasinContentType.FERMENTING_MILK, SauceType.NONE),
-    CHEESE("cheese", BasinContentType.CHEESE, SauceType.NONE),
-    TOMATO_SAUCE("tomato_sauce", BasinContentType.SAUCE, SauceType.TOMATO),
-    HOT_SAUCE("hot_sauce", BasinContentType.SAUCE, SauceType.HOT),
-    OLIVE_OIL("olive_oil", BasinContentType.OIL, SauceType.NONE); //#TODO WHAT ABOUT SAUCE
+    public final String name;
+    public final BasinContentForm form;
+    public final BasinContentType contentType;
+    public final SauceType sauceType;
+    public final ItemStack extractionStack;
+    public final int extractionSize;
 
-    private final SauceType sauceType;
-    private final String name;
-    private final BasinContentType contentType;
-
-    BasinContent(String name, BasinContentType contentType, SauceType sauce)
+    public BasinContent(String name, BasinContentForm form, BasinContentType contentType, SauceType sauce, ItemStack extractionStack, int extractionSize)
     {
         this.name = name;
+        this.form = form;
         this.contentType = contentType;
         this.sauceType = sauce;
-        BasinContentRegistry.REGISTRY.registerContent(this);
+        this.extractionStack = extractionStack;
+        this.extractionSize = extractionSize;
+    }
+
+    public static void register() {}
+
+    public boolean isEmpty()
+    {
+        return this == AIR;
     }
 
     public SauceType getSauceType()
@@ -46,38 +62,5 @@ public enum BasinContent {
     public String getTranslationKey()
     {
         return PizzaCraft.MODID + "." + this.name;
-    }
-
-    public static class BasinContentRegistry
-    {
-        public static final BasinContentRegistry REGISTRY = new BasinContentRegistry();
-
-        public Map<String, BasinContent> contentsRegistry = Maps.newHashMap();
-
-        public BasinContentRegistry() {}
-
-        public Map<String, BasinContent> getContentsRegistry()
-        {
-            return this.contentsRegistry;
-        }
-
-        public void registerContent(BasinContent content)
-        {
-            this.contentsRegistry.put(content.name, content);
-
-            if(content.contentType == BasinContentType.SAUCE)
-            {
-                SauceRegistry.REGISTRY.register(content);
-            }
-        }
-
-        public BasinContent fromString(String name)
-        {
-            if(contentsRegistry.containsKey(name))
-            {
-                return contentsRegistry.get(name);
-            }
-            throw new IllegalStateException("Content does not exist in registry!");
-        }
     }
 }

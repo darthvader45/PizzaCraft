@@ -2,9 +2,7 @@ package com.tiviacz.pizzacraft.blockentity;
 
 import com.google.common.collect.Maps;
 import com.google.gson.JsonSyntaxException;
-import com.tiviacz.pizzacraft.blockentity.content.BasinContent;
-import com.tiviacz.pizzacraft.blockentity.content.BasinContentType;
-import com.tiviacz.pizzacraft.blockentity.content.SauceType;
+import com.tiviacz.pizzacraft.blockentity.content.*;
 import com.tiviacz.pizzacraft.init.ModBlockEntityTypes;
 import com.tiviacz.pizzacraft.init.ModBlocks;
 import com.tiviacz.pizzacraft.init.ModItems;
@@ -14,6 +12,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -62,7 +61,7 @@ public class BasinBlockEntity extends BaseBlockEntity
     public void load(CompoundTag compound)
     {
         super.load(compound);
-        this.content = BasinContent.BasinContentRegistry.REGISTRY.fromString(compound.getString(BASIN_CONTENT));
+        this.content = BasinContentRegistry.REGISTRY.fromString(compound.getString(BASIN_CONTENT));
         this.inventory.deserializeNBT(compound.getCompound(INVENTORY));
         this.squashedStack = ItemStack.of(compound.getCompound(SQUASHED_STACK));
 
@@ -103,31 +102,103 @@ public class BasinBlockEntity extends BaseBlockEntity
         setChanged();
     }
 
-    public static Map<BasinContent, ItemStack> basinContentToItemStack()
+    public void playSound(@Nullable Player player, BasinContentType type)
     {
-        Map<BasinContent, ItemStack> map = Maps.newHashMap();
-        map.put(BasinContent.AIR, ItemStack.EMPTY);
-        map.put(BasinContent.MILK, ItemStack.EMPTY);
-        map.put(BasinContent.FERMENTING_MILK, ItemStack.EMPTY);
-        map.put(BasinContent.CHEESE, new ItemStack(ModBlocks.CHEESE_BLOCK.get()));
-        map.put(BasinContent.TOMATO_SAUCE, new ItemStack(ModItems.TOMATO_SAUCE.get()));
-        map.put(BasinContent.HOT_SAUCE, new ItemStack(ModItems.HOT_SAUCE.get()));
-        map.put(BasinContent.OLIVE_OIL, new ItemStack(ModItems.OLIVE_OIL.get()));
-        return map;
+        SoundEvent sound = null;
+        if(type == BasinContentType.EMPTY) sound = SoundEvents.BUCKET_EMPTY;
+        if(type == BasinContentType.MILK || type == BasinContentType.FERMENTING_MILK) sound = SoundEvents.BUCKET_FILL;
+        if(type == BasinContentType.CHEESE) sound = SoundEvents.FUNGUS_PLACE;
+        if(type == BasinContentType.SAUCE || type == BasinContentType.OIL) sound = SoundEvents.BOTTLE_FILL;
+
+        if(sound != null)
+        {
+            level.playSound(player, getBlockPos(), sound, SoundSource.BLOCKS, 0.8F, 0.9F + level.random.nextFloat());
+        }
     }
 
-    public static Map<BasinContent, Integer> basinContentExtractSize()
+    public ItemStack extractBasinContent(ItemStack clickedStack)
     {
-        Map<BasinContent, Integer> map = Maps.newHashMap();
-        map.put(BasinContent.AIR, 999);
-        map.put(BasinContent.MILK, 999);
-        map.put(BasinContent.FERMENTING_MILK, 999);
-        map.put(BasinContent.CHEESE, 1);
-        map.put(BasinContent.TOMATO_SAUCE, 4);
-        map.put(BasinContent.HOT_SAUCE, 4);
-        map.put(BasinContent.OLIVE_OIL, 4);
-        return map;
+        if(!getBasinContent().isEmpty())
+        {
+            if(getBasinContent().extractionSize <= getSquashedStackCount())
+            {
+                ItemStack result = getBasinContent().extractionStack.copy();
+                boolean hasContainer = false;
+
+                //If item has container, we need container to extract it
+                if(result.hasCraftingRemainingItem())
+                {
+                    hasContainer = true;
+                    if(clickedStack.getItem() != result.getCraftingRemainingItem().getItem()) return ItemStack.EMPTY;
+                }
+
+                //If sauce, we need to decrease squashed stack size
+                if(getBasinContent().sauceType != SauceType.NONE)
+                {
+                    setSquashedStackCount(getSquashedStackCount() - getBasinContent().extractionSize);
+                    return result;
+                }
+
+                this.content = BasinContent.AIR;
+                this.resetFermenting();
+                this.setSquashedStackCount(0);
+                if(hasContainer) clickedStack.shrink(1);
+                this.setChanged();
+                return result;
+            }
+        }
+        return ItemStack.EMPTY;
     }
+
+    public boolean startFermenting(@Nullable Player player, ItemStack stack)
+    {
+        if(getBasinContent().getContentType() == BasinContentType.MILK)
+        {
+            if(stack.is(ModTags.FERMENTING_ITEMS_TAG))
+            {
+                level.playSound(player, getBlockPos(), SoundEvents.COMPOSTER_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                stack.shrink(player != null && player.isCreative() ? 0 : 1);
+                this.content = BasinContent.FERMENTING_MILK;
+                this.setChanged();
+                return true;
+            }
+        }
+        return false;
+    }
+    /*#TODO
+    tekstury hot sauce
+    wszystkie universal layery zrobic (block i item)
+    zrobic jakas mozliwosc automatyzacji basin?
+    reszta tekstur od squidla
+     */
+    public boolean insertOrExtract(Player player, ItemStack stack)
+    {
+        if(getBasinContent().isEmpty() || getBasinContent().form == BasinContentForm.FLUID)
+        {
+            if(stack.getItem() instanceof MilkBucketItem && isEmpty() && getBasinContent().isEmpty())
+            {
+                playSound(player, getBasinContent().contentType);
+                this.content = BasinContent.MILK;
+                if(!player.isCreative())
+                {
+                    player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.BUCKET));
+                }
+                return true;
+            }
+            if(canInsert(stack))
+            {
+                insertStackFromHand(player, InteractionHand.MAIN_HAND);
+                return true;
+            }
+            if(canExtract(player, InteractionHand.MAIN_HAND))
+            {
+                extractStackToPlayer(player);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public InteractionResult onBlockActivated(Player player, InteractionHand hand)
     {
         ItemStack itemHeld = player.getItemInHand(hand);
@@ -217,38 +288,38 @@ public class BasinBlockEntity extends BaseBlockEntity
 
                     else if(canInsert(itemHeld))
                     {
-                        insertStack(player, hand);
+                        //insertStack(player, hand);
                         return InteractionResult.SUCCESS;
                     }
                     else if(canExtract(player, hand))
                     {
-                        extractStack(player);
+                        //extractStack(player);
                         return InteractionResult.SUCCESS;
                     }
                 }
                 else if(getBasinContent().getSauceType() != SauceType.NONE || basinContentType == BasinContentType.OIL) //#TODO IF NOT FIX OLIVE, ADD LINE HERE
                 {
-                    if(getSquashedStackCount() >= basinContentExtractSize().get(getBasinContent()))
+                    if(getSquashedStackCount() >= getBasinContent().extractionSize)
                     {
-                        ItemStack result = basinContentToItemStack().get(getBasinContent());
+                        ItemStack result = getBasinContent().extractionStack.copy();
 
                         if(!player.getInventory().add(result))
                         {
                             level.addFreshEntity(new ItemEntity(player.level(), getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), result));
                         }
                         level.playSound(player, getBlockPos(), SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 0.7F, 0.9F + level.random.nextFloat());
-                        setSquashedStackCount(getSquashedStackCount() - basinContentExtractSize().get(getBasinContent()));
+                        setSquashedStackCount(getSquashedStackCount() - getBasinContent().extractionSize);
                         return InteractionResult.SUCCESS;
                     }
 
                     else if(canInsert(itemHeld))
                     {
-                        insertStack(player, hand);
+                        //insertStack(player, hand);
                         return InteractionResult.SUCCESS;
                     }
                     else if(canExtract(player, hand))
                     {
-                        extractStack(player);
+                        //extractStack(player);
                         return InteractionResult.SUCCESS;
                     }
                 }
@@ -279,7 +350,7 @@ public class BasinBlockEntity extends BaseBlockEntity
      * Called when player jumps on basin block
      * @param player
      */
-    public void crush(Player player)
+    public void crush(@Nullable Player player)
     {
         if(!isEmpty(inventory) && getSquashedStackCount() + 1 <= getInventory().getSlotLimit(0))
         {
@@ -289,12 +360,12 @@ public class BasinBlockEntity extends BaseBlockEntity
 
             if(match.isPresent())
             {
-                if(BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput) == null)
+                if(BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput) == null)
                 {
                     throw new JsonSyntaxException(String.format("Content in %s recipe does not exist", match.get()));
                 }
 
-                if(getBasinContent() == BasinContent.AIR || getBasinContent() == BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput))
+                if(getBasinContent() == BasinContent.AIR || getBasinContent() == BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput))
                 {
                     if(getSquashedStack().isEmpty())
                     {
@@ -305,7 +376,7 @@ public class BasinBlockEntity extends BaseBlockEntity
                         setSquashedStackCount(getSquashedStackCount() + 1);
                     }
 
-                    this.content = BasinContent.BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput);
+                    this.content = BasinContentRegistry.REGISTRY.fromString(match.get().contentOutput);
                     decrStackSize(inventory, 0, 1);
                     level.playSound(player, getBlockPos(), SoundEvents.SLIME_BLOCK_FALL, SoundSource.BLOCKS, 0.7F, 0.9F + (0.1F * level.random.nextFloat()));
                 }
@@ -339,6 +410,12 @@ public class BasinBlockEntity extends BaseBlockEntity
             this.content = BasinContent.CHEESE;
         }
         setChanged();
+    }
+
+    public void resetFermenting()
+    {
+        this.fermentProgress = 0;
+        setChanged();;
     }
 
     private int tick = 0;
@@ -407,7 +484,7 @@ public class BasinBlockEntity extends BaseBlockEntity
         return player.getItemInHand(handIn).isEmpty() && !isEmpty();
     }
 
-    public void insertStack(Player player, InteractionHand hand)
+    public void insertStackFromHand(Player player, InteractionHand hand)
     {
         if(!player.isCreative())
         {
@@ -420,11 +497,11 @@ public class BasinBlockEntity extends BaseBlockEntity
         level.playSound(player, getBlockPos(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.7F, 0.8F + level.random.nextFloat());
     }
 
-    public void extractStack(Player player)
+    public void extractStackToPlayer(Player player)
     {
         if(!player.isCreative())
         {
-            Containers.dropItemStack(level, getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), getInventory().extractItem(0, 64, false));
+            Containers.dropItemStack(level, getBlockPos().getX() + 0.5, getBlockPos().getY() + 0.8, getBlockPos().getZ() + 0.5, getInventory().extractItem(0, 64, false));
         }
         else
         {

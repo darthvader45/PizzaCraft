@@ -6,6 +6,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 import com.tiviacz.pizzacraft.PizzaCraft;
 import com.tiviacz.pizzacraft.blockentity.content.BasinContent;
+import com.tiviacz.pizzacraft.blockentity.content.BasinContentRegistry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -65,9 +66,9 @@ public class CrushingRecipeSerializer implements RecipeSerializer<CrushingRecipe
     {
         if(content != null)
         {
-            if(BasinContent.BasinContentRegistry.REGISTRY.fromString(content) != null)
+            if(BasinContentRegistry.REGISTRY.fromString(content) != null)
             {
-                return BasinContent.BasinContentRegistry.REGISTRY.fromString(content);
+                return BasinContentRegistry.REGISTRY.fromString(content);
             }
             else
             {
@@ -85,9 +86,9 @@ public class CrushingRecipeSerializer implements RecipeSerializer<CrushingRecipe
         {
             String content = json.getAsString();
 
-            if(BasinContent.BasinContentRegistry.REGISTRY.fromString(content) != null)
+            if(BasinContentRegistry.REGISTRY.fromString(content) != null)
             {
-                return BasinContent.BasinContentRegistry.REGISTRY.fromString(content);
+                return BasinContentRegistry.REGISTRY.fromString(content);
             }
             else
             {

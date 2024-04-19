@@ -25,7 +25,7 @@ public class SauceRegistry
     {
         if(content.getContentType() == BasinContentType.SAUCE)
         {
-            this.typeToContent.put(content.getSauceType(), content);
+            this.typeToContent.putIfAbsent(content.getSauceType(), content);
         }
     }
 }
