@@ -3,7 +3,7 @@
   "values": [
     "pizzacraft:oven",
     {
-      "id": "farmersdelight:stove",
+      "id": "#farmersdelight:heat_sources",
       "required": false
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "item": "pizzacraft:cheese_block"
+  },
+  "result": {
+    "item": "pizzacraft:cheese",
+    "count": 3
+  }
+}

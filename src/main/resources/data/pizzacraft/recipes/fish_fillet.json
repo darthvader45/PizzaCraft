@@ -1,0 +1,15 @@
+{
+  "type": "pizzacraft:chopping_recipe",
+  "tool":
+  {
+    "tag": "forge:tools/knives"
+  },
+  "input":
+  {
+    "tag": "forge:raw_fishes"
+  },
+  "result": {
+    "item": "pizzacraft:fish_fillet",
+    "count": 2
+  }
+}

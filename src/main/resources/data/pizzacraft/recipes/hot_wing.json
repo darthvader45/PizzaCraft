@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "food",
+  "ingredients": [
+    {
+      "item": "pizzacraft:cooked_wing"
+    },
+    {
+      "item": "pizzacraft:cooked_wing"
+    },
+    {
+      "item": "pizzacraft:cooked_wing"
+    },
+    {
+      "item": "pizzacraft:hot_sauce"
+    }
+  ],
+  "result": {
+    "item": "pizzacraft:hot_wing",
+    "count": 3
+  }
+}
