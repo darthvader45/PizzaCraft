@@ -1,5 +1,6 @@
 package com.tiviacz.pizzacraft.blocks;
 
+import com.tiviacz.pizzacraft.init.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -67,7 +68,7 @@ public class OvenBlock extends Block
 
             if(rand.nextDouble() < 0.1D)
             {
-                level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                level.playLocalSound(d0, d1, d2, ModSounds.BLOCK_OVEN_CRACKLE.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
             }
 
             Direction direction = stateIn.getValue(FACING);

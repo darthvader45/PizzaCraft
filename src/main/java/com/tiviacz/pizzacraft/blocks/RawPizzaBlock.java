@@ -68,7 +68,7 @@ public class RawPizzaBlock extends Block implements EntityBlock
 
                 if(rand.nextDouble() < 0.3D)
                 {
-                    level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.SIZZLING_SOUND.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
+                    level.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), ModSounds.BLOCK_PIZZA_SIZZLING.get(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
                 }
 
                 if(rand.nextInt(2) == 0)

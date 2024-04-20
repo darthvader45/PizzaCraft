@@ -2,6 +2,7 @@ package com.tiviacz.pizzacraft.blockentity;
 
 import com.tiviacz.pizzacraft.init.ModAdvancements;
 import com.tiviacz.pizzacraft.init.ModBlockEntityTypes;
+import com.tiviacz.pizzacraft.init.ModSounds;
 import com.tiviacz.pizzacraft.recipes.chopping.ChoppingRecipe;
 import com.tiviacz.pizzacraft.tags.ModTags;
 import net.minecraft.core.BlockPos;
@@ -10,7 +11,6 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -91,7 +91,7 @@ public class ChoppingBoardBlockEntity extends BaseBlockEntity
         {
             ItemStack result = match.get().getResultItem(getLevel().registryAccess()).copy();
             level.addParticle(new ItemParticleOption(ParticleTypes.ITEM, getStoredStack()), getBlockPos().getX() + 0.5D, getBlockPos().getY() + 0.3D, getBlockPos().getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
-            level.playSound(player, getBlockPos(), SoundEvents.PUMPKIN_CARVE, SoundSource.BLOCKS, 0.7F, 0.8F);
+            level.playSound(player, getBlockPos(), ModSounds.BLOCK_CHOPPING_BOARD_KNIFE.get(), SoundSource.BLOCKS, 0.7F, 0.8F);
 
             Direction direction = facing.getCounterClockWise(); //#TODO
             ItemEntity entity = new ItemEntity(level, getBlockPos().getX() + 0.5 + (direction.getStepX() * 0.2), getBlockPos().getY() + 0.2, getBlockPos().getZ() + 0.5 + (direction.getStepZ() * 0.2), result.copy());

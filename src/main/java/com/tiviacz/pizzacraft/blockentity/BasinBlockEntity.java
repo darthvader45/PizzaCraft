@@ -1,11 +1,11 @@
 package com.tiviacz.pizzacraft.blockentity;
 
-import com.google.common.collect.Maps;
 import com.google.gson.JsonSyntaxException;
 import com.tiviacz.pizzacraft.blockentity.content.*;
 import com.tiviacz.pizzacraft.init.ModBlockEntityTypes;
 import com.tiviacz.pizzacraft.init.ModBlocks;
 import com.tiviacz.pizzacraft.init.ModItems;
+import com.tiviacz.pizzacraft.init.ModSounds;
 import com.tiviacz.pizzacraft.recipes.crushing.CrushingRecipe;
 import com.tiviacz.pizzacraft.tags.ModTags;
 import net.minecraft.core.BlockPos;
@@ -36,7 +36,6 @@ import org.joml.Vector3f;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Map;
 import java.util.Optional;
 
 public class BasinBlockEntity extends BaseBlockEntity
@@ -165,12 +164,7 @@ public class BasinBlockEntity extends BaseBlockEntity
         }
         return false;
     }
-    /*#TODO
-    tekstury hot sauce
-    wszystkie universal layery zrobic (block i item)
-    zrobic jakas mozliwosc automatyzacji basin?
-    reszta tekstur od squidla
-     */
+
     public boolean insertOrExtract(Player player, ItemStack stack)
     {
         if(getBasinContent().isEmpty() || getBasinContent().form == BasinContentForm.FLUID)
@@ -433,7 +427,7 @@ public class BasinBlockEntity extends BaseBlockEntity
                 {
                     //if(tick == 59)
                     //{
-                    level.playSound(null, pos, SoundEvents.FUNGUS_PLACE, SoundSource.BLOCKS, 0.8F, 0.9F + level.random.nextFloat());
+                    level.playSound(null, pos, ModSounds.BLOCK_BASIN_FERMENTING.get(), SoundSource.BLOCKS, 0.8F, 0.9F + level.random.nextFloat());
                     //}
                 }
             }

@@ -130,6 +130,11 @@
   "description.pizzacraft.backstab.title": "Backstab",
   "description.pizzacraft.backstab.description": "Deals 125% of base damage, if entity is attacked from behind",
 
+  "subtitles.pizzacraft.oven.crackle": "Oven crackles",
+  "subtitles.pizzacraft.pizza.sizzling": "Pizza sizzles",
+  "subtitles.pizzacraft.chopping_board.knife": "Knife cuts",
+  "subtitles.pizzacraft.basin.fermenting": "Milk fermenting",
+
   "advancements.pizzacraft.root.title": "PizzaCraft",
   "advancements.pizzacraft.root.description": "Have you ever tried Pizza in Minecraft?",
   "advancements.pizzacraft.chopping_board.title": "Chop Chop!",
