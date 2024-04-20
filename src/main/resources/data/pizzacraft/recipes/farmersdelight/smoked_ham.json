@@ -1,0 +1,33 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid":"farmersdelight"
+        }
+      ],
+      "recipe": {
+        "type": "farmersdelight:cutting",
+        "ingredients": [
+          {
+            "item": "farmersdelight:smoked_ham"
+          }
+        ],
+        "result": [
+          {
+            "count": 8,
+            "item": "pizzacraft:ham"
+          },
+          {
+            "item": "minecraft:bone"
+          }
+        ],
+        "tool": {
+          "tag": "forge:tools/knives"
+        }
+      }
+    }
+  ]
+}
