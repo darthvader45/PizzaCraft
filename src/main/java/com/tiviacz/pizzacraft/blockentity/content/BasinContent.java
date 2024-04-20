@@ -1,13 +1,10 @@
 package com.tiviacz.pizzacraft.blockentity.content;
 
-import com.google.common.collect.Maps;
 import com.tiviacz.pizzacraft.PizzaCraft;
 import com.tiviacz.pizzacraft.init.ModBlocks;
 import com.tiviacz.pizzacraft.init.ModItems;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-
-import java.util.Map;
 
 public class BasinContent
 {
