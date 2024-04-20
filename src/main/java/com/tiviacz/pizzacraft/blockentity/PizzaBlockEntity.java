@@ -145,6 +145,16 @@ public class PizzaBlockEntity extends BaseBlockEntity implements MenuProvider
                                     Containers.dropItemStack(level, getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), modifiedCopy);
                                 }
                             }
+                            if(this.selectedSlot == 9)
+                            {
+                                if(modifiedCopy.getItem() instanceof SauceItem || modifiedCopy.is(ModTags.SAUCE))
+                                {
+                                    if(!player.getInventory().add(modifiedCopy))
+                                    {
+                                        Containers.dropItemStack(level, getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), modifiedCopy);
+                                    }
+                                }
+                            }
                             level.playSound(player, getBlockPos(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.7F, 0.8F + level.random.nextFloat());
                             removeFromSlot(this.selectedSlot);
                             this.setChanged();
@@ -168,11 +178,19 @@ public class PizzaBlockEntity extends BaseBlockEntity implements MenuProvider
 
                     if(stack.getItem() instanceof PotionItem || stack.getItem() instanceof SauceItem)
                     {
+                        if(!inventory.getStackInSlot(9).isEmpty())
+                        {
+                            if(!player.getInventory().add(inventory.getStackInSlot(9)))
+                            {
+                                Containers.dropItemStack(level, getBlockPos().getX(), getBlockPos().getY(), getBlockPos().getZ(), inventory.getStackInSlot(9));
+                            }
+                        }
+
                         ItemStack modifiedCopy = stack.copy();
                         modifiedCopy.setCount(1);
                         inventory.setStackInSlot(9, modifiedCopy);
 
-                        stack.shrink(1);
+                        stack.shrink(player.isCreative() ? 0 : 1);
                         ItemStack container = PizzaMenu.getItemStack(modifiedCopy);
                         player.addItem(container);
                         level.playSound(player, getBlockPos(), SoundEvents.AXOLOTL_SPLASH, SoundSource.BLOCKS, 0.7F, 0.8F + level.random.nextFloat());
@@ -187,7 +205,7 @@ public class PizzaBlockEntity extends BaseBlockEntity implements MenuProvider
                         modifiedCopy.setCount(1);
                         inventory.setStackInSlot(this.selectedSlot, modifiedCopy);
 
-                        stack.shrink(1);
+                        stack.shrink(player.isCreative() ? 0 : 1);
                         level.playSound(player, getBlockPos(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.7F, 0.8F + level.random.nextFloat());
                         this.setChanged();
                         return InteractionResult.SUCCESS;
