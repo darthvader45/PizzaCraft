@@ -55,20 +55,25 @@ public class DoughBlock extends Block
 
         if(player.getItemInHand(handIn).getItem() == ModItems.ROLLING_PIN.get())
         {
-            proceedKneeding(state, level, pos, player);
+            proceedKneeding(state, level, pos, player, false);
             stack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(handIn));
+            return InteractionResult.SUCCESS;
+        }
+        if(player.getItemInHand(handIn).isEmpty())
+        {
+            proceedKneeding(state, level, pos, player, true);
             return InteractionResult.SUCCESS;
         }
         return InteractionResult.PASS;
     }
 
-    public void proceedKneeding(BlockState state, Level level, BlockPos pos, Player player)
+    public void proceedKneeding(BlockState state, Level level, BlockPos pos, Player player, boolean isHand)
     {
         int i = state.getValue(KNEEDING);
 
-        if(i < 5)
+        if(i < (isHand ? 5 : 3))
         {
-            level.setBlockAndUpdate(pos, state.setValue(KNEEDING, i + 1));
+            level.setBlockAndUpdate(pos, state.setValue(KNEEDING, isHand ? i + 1 : 3));
         }
         else
         {
