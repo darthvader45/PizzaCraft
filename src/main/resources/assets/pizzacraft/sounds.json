@@ -1,9 +1,39 @@
 {
-  "pizza.sizzling": {
+  "block.pizza.sizzling": {
     "category": "block",
     "sounds": [
-        "pizzacraft:blocks/pizza/pizza_sizzling"
+        "pizzacraft:block/pizza/pizza_sizzling"
     ],
-    "subtitle": "subtitles.block.pizzacraft:pizza.sizzling"
+    "subtitle": "subtitles.pizzacraft.pizza.sizzling"
+  },
+  "block.oven.crackle": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "block.furnace.fire_crackle",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.pizzacraft.oven.crackle"
+  },
+  "block.chopping_board.knife": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "block.pumpkin.carve",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.pizzacraft.chopping_board.knife"
+  },
+  "block.basin.fermenting": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "block.fungus.place",
+        "type": "event"
+      }
+    ],
+    "subtitle": "subtitles.pizzacraft.basin.fermenting"
   }
 }
