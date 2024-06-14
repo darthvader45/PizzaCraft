@@ -64,7 +64,7 @@ public class SeedsLootModifier extends LootModifier
         }
         if(PizzaCraftConfig.SERVER.tomatoSeedDrops.get())
         {
-            pool.add(ModItems.TOMATO.get().getDefaultInstance());
+            pool.add(ModItems.TOMATO_SEEDS.get().getDefaultInstance());
         }
         if(PizzaCraftConfig.SERVER.cornDrops.get())
         {
