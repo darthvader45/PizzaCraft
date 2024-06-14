@@ -6,7 +6,7 @@
   },
   "input":
   {
-    "tag": "forge:cooked_fishes"
+    "tag": "forge:cookedfish"
   },
   "result": {
     "item": "pizzacraft:cooked_fish_fillet",
